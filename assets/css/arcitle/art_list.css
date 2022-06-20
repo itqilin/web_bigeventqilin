@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 15px;
+    background-color: #f1f2f5;
+}
+
+#edit_article {
+    display: inline-block;
+    width: 34px;
+    height: 22px;
+    margin-right: 5px;
+}

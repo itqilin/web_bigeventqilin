@@ -44,17 +44,25 @@ $(function() {
     function renderAvatar(user) {
         // 获取用户的名称
         var username = user.nickname || user.username;
-        // 设置欢迎的文本
-        $('.welcome').html('欢迎 ' + username);
         if (user.user_pic !== null) {
             // 渲染图片头像
-            $('.text_portrait').hide();
-            $('.layui-nav-img').prop('src', user.user_pic).show();
+            // $('.text_portrait').hide();
+            // $('.layui-nav-img').prop('src', user.user_pic).show();
+            var htmlStrTop = `<img src="${user.user_pic}" class="layui-nav-img"> 个人中心`;
+            var htmlStrLeft = `<img src="${user.user_pic}" class="layui-nav-img"> <span class="welcome">${'欢迎 &nbsp&nbsp' + username}</span>`
+                // 设置欢迎的文本
+                // $('.welcome').html('欢迎 ' + username);
+            $('.user_portrait_top').html(htmlStrTop);
+            $('.user_portrait_left').html(htmlStrLeft);
         } else {
             // 渲染文本头像
-            $('.layui-nav-img').hide();
+            // $('.layui-nav-img').hide();
             var first = username[0].toUpperCase();
-            $('.text_portrait').html(first).show();
+            // $('.text_portrait').html(first).show();
+            var htmlStrTop2 = `<span class="text_portrait">${first}</span> 个人中心`;
+            var htmlStrLeft2 = `<span class="text_portrait">${first}</span><span class="welcome">${'欢迎&nbsp&nbsp' + username}</span>`;
+            $('.user_portrait_top').html(htmlStrTop2);
+            $('.user_portrait_left').html(htmlStrLeft2);
         }
     }
 })
